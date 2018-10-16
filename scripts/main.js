@@ -11,10 +11,9 @@ let modTa = document.getElementById("mod");
 function parseRaw() {
 	//first things first get raw data
 	let raw = rawTa.value;
-	let mod = modTa.value;
 	let colHeaders = (raw.split("\n", 1)[0]).split(DELIM_HEADER);
 
-	//figure out which columns contain the important info we want
+	//figure out which columns contain the important info we want (from first textarea)
 	for (let i = 0; i < colHeaders.length; i++) {
 		if (colHeaders[i] === UNI_HEADER) {
 			var uniIndex = i;
@@ -24,15 +23,35 @@ function parseRaw() {
 		}
 	}
 
+	//parse the second textarea
+	let mod = modTa.value;
+	let mods = mod.split("\n")；
+
 	let rowData = raw.split(DELIM_ROW);
 	let uniCol = new Array(rowData.length);
 	let modCol = new Array(rowData.length);
 
 	let curRow;
+	let crUni;
+	let crNMod;
+
+	let schDict = {};
+
 	for (let i = 0; i < rowData.length; i++) {
 		curRow = rowData[i].split(DELIM_FIELD);
 
+		crUni = curRow[uniIndex];
+		crNMod = curRow[nModIndex];
 
+		for (let j = 0; j < mods.length; j++) {
+			
+			if (mods[i] === crNMod) {
+				//using dictionary
+				//each v in dict should be array to show list of mods that sch has
+				//sorry not array i mean ordered list
+				//should implement on own
+			}
+		}
 
 
 	}
