@@ -22,7 +22,7 @@ function parseRaw() {
 	let mods = mod.split("\n");
 
 	let rowData = raw.split(DELIM_ROW);
-	let uniCol = new Array(rowData.length);
+	let uniCol = new Array(rowData.length); //haven't used these yet so not changing. but don't use new Array(), just use [].
 	let modCol = new Array(rowData.length);
 
 	let curRow;
