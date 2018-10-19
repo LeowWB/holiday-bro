@@ -13,15 +13,9 @@ function parseRaw() {
 	let raw = rawTa.value;
 	let colHeaders = (raw.split("\n", 1)[0]).split(DELIM_HEADER);
 
-	//figure out which columns contain the important info we want (from first textarea)
-	for (let i = 0; i < colHeaders.length; i++) {
-		if (colHeaders[i] === UNI_HEADER) {
-			var uniIndex = i;
-		}
-		else if (colHeaders[i] === NUS_MOD_HEADER) {
-			var nModIndex = i;
-		}
-	}
+    //figure out which columns contain the important info we want (from first textarea)
+	const uniIndex = colHeaders.indexOf(UNI_HEADER);
+	const nModIndex = colHeaders.indexOf(NUS_MOD_HEADER);
 
 	//parse the second textarea
 	let mod = modTa.value;
