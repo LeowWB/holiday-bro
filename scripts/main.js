@@ -25,7 +25,7 @@ function parseRaw() {
 
 	//parse the second textarea
 	let mod = modTa.value;
-	let mods = mod.split("\n")；
+	let mods = mod.split("\n");
 
 	let rowData = raw.split(DELIM_ROW);
 	let uniCol = new Array(rowData.length);

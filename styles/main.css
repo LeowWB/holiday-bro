@@ -1,0 +1,38 @@
+body {
+
+	font-family: "Lucida Sans Unicode";
+	font-size: 13px;
+	color: white;
+	background: #222222;
+	text-align: center;
+}
+
+header {
+	font-size: 20px;
+}
+
+textarea {
+	background: black;
+	color: #dddddd;
+}
+
+#raw {
+	display: inline-block;
+	width: 60%;
+	height: 300px;
+}
+
+#mod {
+	display: inline-block;
+	width: 20%;
+	height: 300px;
+}
+
+#ok {
+	font-family: "Lucida Sans Unicode";
+	font-size: 20px;
+	background: #222222;
+	color: white;
+	text-transform: uppercase;
+	display: inline-block;
+}
