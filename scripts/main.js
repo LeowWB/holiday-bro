@@ -13,7 +13,7 @@ function parseRaw() {
 	let raw = rawTa.value;
 	let colHeaders = (raw.split("\n", 1)[0]).split(DELIM_HEADER);
 
-    //figure out which columns contain the important info we want (from first textarea)
+	//figure out which columns contain the important info we want (from first textarea)
 	const uniIndex = colHeaders.indexOf(UNI_HEADER);
 	const nModIndex = colHeaders.indexOf(NUS_MOD_HEADER);
 
@@ -22,8 +22,8 @@ function parseRaw() {
 	let mods = mod.split("\n");
 
 	let rowData = raw.split(DELIM_ROW);
-	let uniCol = new Array(rowData.length); //haven't used these yet so not changing. but don't use new Array(), just use [].
-	let modCol = new Array(rowData.length);
+	let uniCol = [];
+	let modCol = [];
 
 	let curRow;
 	let crUni;
@@ -53,5 +53,49 @@ function parseRaw() {
 	alert(uniIndex + " " + nModIndex);
 }
 
-
 document.getElementById("ok").addEventListener("click", parseRaw);
+
+//implementation of ordered list of strings with no duplicates
+class ModList {
+
+	constructor () {
+		this.xs = [];
+	}
+
+	//does a binary search of the array to see if the element already exists.
+	//if it doesn't then adds the element to the appropriate position.
+	add(m) {
+
+		function helper(low, high) {
+
+			let mid = Math.floor((low + high) / 2);
+
+			if (this.xs[mid] === m)		//a copy of m has already been found in the array
+				return;
+			else if (low === high) {	//m is confirmed to not exist in the array
+
+				if (this.xs[low] < m)
+					low++;
+				
+				this.xs.splice(low, 0, m);
+			}
+			else if (low === mid) 
+				helper(high, high);
+			else if (this.xs[mid] > m)
+				helper(low, mid);
+			else
+				helper(mid, high);
+		}
+	}
+
+	toString() {
+
+		let rv = "";
+
+		xs.forEach(element => {
+			rv += element + "\n";
+		});
+
+		return rv;
+	}
+}
