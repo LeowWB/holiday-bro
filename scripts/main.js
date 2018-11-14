@@ -1,4 +1,4 @@
-const DELIM_ROW = "\n \n \n \n";
+const DELIM_ROW = "\n \n \n \n\n";
 const DELIM_HEADER = "\t";
 const DELIM_FIELD = "\n";
 const NUS_MOD_HEADER = "NUS Module 1";
@@ -32,25 +32,32 @@ function parseRaw() {
 	let schDict = {};
 
 	for (let i = 0; i < rowData.length; i++) {
+
 		curRow = rowData[i].split(DELIM_FIELD);
+
+		if (i === 0) //to account for the first row of content also containing all the column headers
+			curRow.shift();
 
 		crUni = curRow[uniIndex];
 		crNMod = curRow[nModIndex];
 
 		for (let j = 0; j < mods.length; j++) {
 			
-			if (mods[i] === crNMod) {
-				//using dictionary
-				//each v in dict should be array to show list of mods that sch has
-				//sorry not array i mean ordered list
-				//should implement on own
+
+			if (mods[j] === crNMod) {
+
+				if (schDict[crUni] === undefined) {
+					schDict[crUni] = new ModList();
+				}
+
+				schDict[crUni].add(crNMod);
 			}
 		}
-
-
 	}
 
-	alert(uniIndex + " " + nModIndex);
+	for (x of Object.keys(schDict)) {
+		console.log(x + "\t" + schDict[x].toString());
+	}
 }
 
 document.getElementById("ok").addEventListener("click", parseRaw);
