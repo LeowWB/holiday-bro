@@ -59,6 +59,7 @@ document.getElementById("ok").addEventListener("click", parseRaw);
 class ModList {
 
 	constructor () {
+		
 		this.xs = [];
 	}
 
@@ -66,33 +67,38 @@ class ModList {
 	//if it doesn't then adds the element to the appropriate position.
 	add(m) {
 
+		let thisXs = this.xs;
+
 		function helper(low, high) {
 
 			let mid = Math.floor((low + high) / 2);
 
-			if (this.xs[mid] === m)		//a copy of m has already been found in the array
+			if (thisXs[mid] === m)	{	//a copy of m has already been found in the array
 				return;
+			}
 			else if (low === high) {	//m is confirmed to not exist in the array
 
-				if (this.xs[low] < m)
+				if (thisXs[low] < m)
 					low++;
 				
-				this.xs.splice(low, 0, m);
+				thisXs.splice(low, 0, m);
 			}
 			else if (low === mid) 
 				helper(high, high);
-			else if (this.xs[mid] > m)
+			else if (thisXs[mid] > m)
 				helper(low, mid);
 			else
 				helper(mid, high);
 		}
+
+		helper(0, thisXs.length);
 	}
 
 	toString() {
 
 		let rv = "";
 
-		xs.forEach(element => {
+		this.xs.forEach(element => {
 			rv += element + "\n";
 		});
 
