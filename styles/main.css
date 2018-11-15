@@ -36,3 +36,11 @@ textarea {
 	text-transform: uppercase;
 	display: inline-block;
 }
+
+#output {
+	
+	display: inline-block;
+	margin: 100px;
+	width: 80%;
+	height: 300px;
+}

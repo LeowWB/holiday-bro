@@ -55,9 +55,21 @@ function parseRaw() {
 		}
 	}
 
+
+	let outputTa = document.getElementById("output");
+	let outStr = "";
+
 	for (x of Object.keys(schDict)) {
-		console.log(x + "\t" + schDict[x].toString());
+
+		let uni = x;
+		let nMods = schDict[x].toString("\n\t");
+
+		outStr += uni + "\n" + nMods;
+		outStr += "\n\n";
 	}
+
+	outputTa.value = outStr;
+	//autoscroll down when the output is ready to be viewed.
 }
 
 document.getElementById("ok").addEventListener("click", parseRaw);
@@ -101,12 +113,12 @@ class ModList {
 		helper(0, thisXs.length);
 	}
 
-	toString() {
+	toString(separator) {
 
 		let rv = "";
 
 		this.xs.forEach(element => {
-			rv += element + "\n";
+			rv += element + separator;
 		});
 
 		return rv;
