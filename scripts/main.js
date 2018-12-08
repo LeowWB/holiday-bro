@@ -70,7 +70,8 @@ function parseRaw() {
 
 	outputTa.value = outStr;
 
-	window.scrollBy(0, 500);
+	//scroll down
+	window.scrollBy(0, 1000);
 }
 
 document.getElementById("ok").addEventListener("click", parseRaw);

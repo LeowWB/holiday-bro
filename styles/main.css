@@ -31,6 +31,7 @@ textarea {
 #ok {
 	font-family: "Lucida Sans Unicode";
 	font-size: 20px;
+	width: 80%;
 	background: #222222;
 	color: white;
 	text-transform: uppercase;
@@ -41,6 +42,7 @@ textarea {
 	
 	display: inline-block;
 	margin: 100px;
+	margin-bottom: 25px;
 	width: 80%;
 	height: 500px;
 }
