@@ -64,12 +64,13 @@ function parseRaw() {
 		let uni = x;
 		let nMods = schDict[x].toString("\n\t");
 
-		outStr += uni + "\n" + nMods;
-		outStr += "\n\n";
+		outStr += uni + "" + nMods;
+		outStr += "\n\n\n";
 	}
 
 	outputTa.value = outStr;
-	//autoscroll down when the output is ready to be viewed.
+
+	window.scrollBy(0, 500);
 }
 
 document.getElementById("ok").addEventListener("click", parseRaw);
@@ -103,7 +104,7 @@ class ModList {
 				thisXs.splice(low, 0, m);
 			}
 			else if (low === mid) 
-				helper(high, high);
+				helper(low, low);
 			else if (thisXs[mid] > m)
 				helper(low, mid);
 			else
@@ -118,7 +119,7 @@ class ModList {
 		let rv = "";
 
 		this.xs.forEach(element => {
-			rv += element + separator;
+			rv += separator + element;
 		});
 
 		return rv;
