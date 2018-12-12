@@ -74,8 +74,6 @@ function parseRaw() {
 	window.scrollBy(0, 1000);
 }
 
-document.getElementById("ok").addEventListener("click", parseRaw);
-
 //implementation of ordered list of strings with no duplicates
 class ModList {
 
@@ -126,3 +124,6 @@ class ModList {
 		return rv;
 	}
 }
+
+document.getElementById("ok").addEventListener("click", parseRaw);
+document.getElementById("help").addEventListener("click", () => window.location.href = "help.html");

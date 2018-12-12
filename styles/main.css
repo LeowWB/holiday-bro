@@ -38,6 +38,20 @@ textarea {
 	display: inline-block;
 }
 
+#help {
+	
+	font-family: "Lucida Sans Unicode";
+	font-size: 40px;
+	color: white;
+	background: #222222;
+	text-transform: uppercase;
+	display: inline-block;
+	border: 0px;
+	position: absolute;
+	top: 0px;
+	right: 10px;
+}
+
 #output {
 	
 	display: inline-block;
